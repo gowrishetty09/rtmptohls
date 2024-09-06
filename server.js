@@ -49,6 +49,12 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
+process.on('SIGSEGV', (signal) => {
+  console.error(`FFmpeg crashed with signal: ${signal}`);
+  process.exit(1); // Exit the process after handling the crash
+});
+
+
 // Log unhandled exceptions and rejections
 // process.on('uncaughtException', (err) => {
 //   console.error('Uncaught Exception:', err.message);
