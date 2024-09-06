@@ -25,7 +25,7 @@ console.log('Starting FFmpeg process...');
 ffmpeg(inputRtmpUrl)
   .outputOptions([
     '-c:v libx264',
-    '-b:v 1000k', // Limit video bitrate to 1000 kbps
+    '-b:v 320k', // Limit video bitrate to 1000 kbps
     '-c:a aac',
     '-f hls',
     '-hls_time 10',
