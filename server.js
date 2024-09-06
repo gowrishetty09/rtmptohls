@@ -43,7 +43,7 @@ ffmpeg(inputRtmpUrl)
   .run();
 
 // Set up a basic server to serve HLS files
-const port = 8080; // Change this port if needed
+const port = 4158; // Change this port if needed
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
