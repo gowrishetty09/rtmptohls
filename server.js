@@ -24,12 +24,13 @@ console.log('Server is starting...');
 console.log('Starting FFmpeg process...');
 ffmpeg(inputRtmpUrl)
   .outputOptions([
-    '-c:v copy',
+    '-c:v libx264',
+    '-b:v 1000k', // Limit video bitrate to 1000 kbps
     '-c:a aac',
     '-f hls',
-    '-hls_time 10', // Duration of each segment in seconds
-    '-hls_list_size 5', // Number of segments to keep in the playlist
-    '-hls_flags delete_segments', // Automatically delete old segments
+    '-hls_time 10',
+    '-hls_list_size 5',
+    '-hls_flags delete_segments',
     '-hls_segment_filename', path.join(outputHlsPath, 'segment_%03d.ts')
   ])
   .output(path.join(outputHlsPath, 'stream.m3u8'))
